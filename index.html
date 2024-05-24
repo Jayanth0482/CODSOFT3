@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    body{
+        background-image: url(bg.jpeg);
+        background-size: cover;
+        background-position: center;
+    }
+    .calculator{
+        width: 350px;
+        background-color: darkslateblue;
+        margin: 50px auto;
+        border: 10px solid #ccc;
+        padding: 30px;
+        border-radius: 5px;
+
+    }
+    input[type="text"]{
+        width: 250px;
+        padding: 15px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 10px; 
+    }
+    input[type="button"]{
+        color: darkmagenta;
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="button"]:hover{
+        background-color: #f0f0f0;
+    }
+    h2{
+        text-align: center;
+        text-decoration: inherit;
+        text-decoration-color: "beige";
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculator</h2>
+        <input type="text" id="result" readonly>
+        <br>
+        <input type="button" value="7"
+        onclick="addToInput('7')">
+        <input type="button" value="8"
+        onclick="addToInput('8')">
+        <input type="button" value="9"
+        onclick="addToInput('9')">
+        <input type="button" value="+"
+        onclick="addToInput('+')">
+        <br>
+        <input type="button" value="4"
+        onclick="addToInput('4')">
+        <input type="button" value="5"
+        onclick="addToInput('5')">
+        <input type="button" value="6"
+        onclick="addToInput('6')">
+        <input type="button" value="-"
+        onclick="addEventListener('-')">
+        <br>
+        <input type="button" value="1"
+        onclick="addToInput('1')">
+        <input type="button" value="2"
+        onclick="addToInput('2')">
+        <input type="button" value="3"
+        onclick="addToInput('3')">
+        <input type="button" value="*"
+        onclick="addToInput('*')">
+        <br>
+        <input type="button" value="0"
+        onclick="addToInput('0')">
+        <input type="button" value="."
+        onclick="addToInput('.')">
+        <input type="button" value="C"
+        onclick="clearInput()">
+        <input type="button" value="/"
+        onclick="addToInput('/')">
+        <br>
+        <input type="button" value="=" onclick="calculate()">
+        
+
+    </div>
+    <script>
+        function addToInput(value){
+            document.getElementById('result').value +=value;
+        }
+    function clearInput(value){
+        document.getElementById('result').value='';
+    }
+    function calculate(){
+        try{
+            var result=eval(document.getElementById('result').value);
+            document.getElementById('result').value=result;
+
+        }catch (error){
+            alert('Invalid expression');
+            clearInput();
+
+        }
+    }
+    </script>
+</body>
+</html>
